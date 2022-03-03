@@ -1,4 +1,4 @@
-var AuthController = require("../controller/auth");
+var AuthController = require("../controller/main.js");
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
