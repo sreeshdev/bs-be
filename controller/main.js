@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 exports.signIn = async function (req, res) {
   User.findOne({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   }).then((user) => {
     if (!user) {
@@ -24,11 +24,11 @@ exports.signIn = async function (req, res) {
 };
 
 exports.signUp = async function (req, res) {
-  if (!req.body.username || !req.body.password) {
-    res.status(400).send({ msg: "Please pass username and password." });
+  if (!req.body.email || !req.body.password) {
+    res.status(400).send({ msg: "Please pass email and password." });
   } else {
     User.create({
-      username: req.body.username,
+      email: req.body.email,
       password: req.body.password,
     })
       .then((user) => res.status(200).send(user))

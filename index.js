@@ -12,7 +12,7 @@ const port = process.env.PORT || config.get("port");
 app.use(express.static("public"));
 
 const server = app.listen(port, () => {
-  db.sequelize.sync({ force: true });
+  db.sequelize.sync();
   winston.info(`Listening on port ${port}...`);
 });
 
