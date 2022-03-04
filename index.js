@@ -5,14 +5,14 @@ const app = express();
 var db = require("./models");
 
 require("./startup/cors")(app);
-require("./startup/routes")(app);
+require("./routes")(app);
 require("./startup/config")();
 
 const port = process.env.PORT || config.get("port");
 app.use(express.static("public"));
 
 const server = app.listen(port, () => {
-  db.sequelize.sync();
+  db.sequelize.sync({ alter: true });
   winston.info(`Listening on port ${port}...`);
 });
 

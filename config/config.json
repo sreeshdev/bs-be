@@ -1,10 +1,11 @@
 {
   "development": {
-    "username": "root",
-    "password": "root1234",
-    "database": "bstest",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "admin",
+    "password": "12345678",
+    "database": "test",
+    "host": "sreesh.cuzocshxnuot.ap-south-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "port": 3306
   },
   "test": {
     "username": "root",
@@ -15,9 +16,10 @@
   },
   "production": {
     "username": "root",
-    "password": "123456",
+    "password": "12345678",
     "database": "test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "sreesh.cuzocshxnuot.ap-south-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "port": 3306
   }
 }

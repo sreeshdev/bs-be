@@ -6,7 +6,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
+    "bcrypt": "^5.0.1",
     "config": "^3.2.5",
     "cors": "^2.8.5",
     "express": "~4.16.1",

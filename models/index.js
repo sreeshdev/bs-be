@@ -8,24 +8,19 @@ const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
 let sequelize;
-
-sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
-});
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Connection has been established successfully.");
-  })
-  .catch((err) => {
-    console.error("Unable to connect to the database:", err);
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], {
+    dialect: "mysql",
+    host: config.host,
+    port: 3306,
   });
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    dialect: "mysql",
+    host: config.host,
+    port: 3306,
+  });
+}
 
 fs.readdirSync(__dirname)
   .filter((file) => {
